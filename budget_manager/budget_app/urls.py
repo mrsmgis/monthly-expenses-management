@@ -3,5 +3,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', views.users, name="users_page"),
+    path('', views.budget, name="budget_page"),
 ]
