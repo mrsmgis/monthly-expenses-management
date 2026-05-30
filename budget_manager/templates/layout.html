@@ -13,6 +13,7 @@
     />
   </head>
   <body>
+    {% if user.is_authenticated %}
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -38,11 +39,19 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link {% if request.resolver_match.url_name == 'accounts_page' %}active{% endif %}" href="{% url 'accounts_page' %}">Accounts</a>
+              <a
+                class="nav-link {% if request.resolver_match.url_name == 'accounts_page' %}active{% endif %}"
+                href="{% url 'accounts_page' %}"
+                >Accounts</a
+              >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link {% if request.resolver_match.url_name == 'budget_page' %}active{% endif %}" href="{% url 'budget_page' %}">Budget</a>
+              <a
+                class="nav-link {% if request.resolver_match.url_name == 'budget_page' %}active{% endif %}"
+                href="{% url 'budget_page' %}"
+                >Budget</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -54,6 +63,10 @@
             </li>
           </ul>
         </div>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Log Out</button>
+        </form>
       </div>
     </nav>
     <div class="container">
@@ -61,5 +74,9 @@
       <h1>This is home page</h1>
       {% endblock %}
     </div>
+    {% else %}
+    <p>Please log in.</p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login</a>
+    {% endif %}
   </body>
 </html>

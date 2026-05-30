@@ -5,4 +5,4 @@ from django.shortcuts import render
 def home(req):
     return render(req, "layout.html")
 def login(req):
-    return render(req, 'login.html')
+    return render(req, 'registration/login.html')
