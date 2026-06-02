@@ -23,12 +23,14 @@ Accounts
     </tr>
   </thead>
   <tbody>
-    {% for item in budgets %}
+    {% for acc in accounts %}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ item.category }}</td>
-      <td>{{ item.amount }}</td>
-      <td>{{ item.month }}</td>
+      <td>{{ acc.date }}</td>
+      <td>{{ acc.type }}</td>
+      <td>{{ acc.description }}</td>
+      <td>{{ acc.amount }}</td>
+      <td>{{ acc.category }}</td>
     </tr>
     {% endfor %}
 </table>

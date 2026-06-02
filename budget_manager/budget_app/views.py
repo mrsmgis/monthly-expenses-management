@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Budget
 from .forms import BudgetForm
 
@@ -12,6 +12,7 @@ def add_budget(request):
         form = BudgetForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('budget_page')
     else:
         form = BudgetForm()
     return render(request, "budget_app/add_budget.html", {"form": form})

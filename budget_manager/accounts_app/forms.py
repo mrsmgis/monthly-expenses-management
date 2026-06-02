@@ -9,13 +9,18 @@ class AccountForm(forms.ModelForm):
     ]
     type = forms.ChoiceField(choices=type_choices)
     category_choices = [
-        ('Food', 'Food'),
-        ('Rent', 'Rent'),
-        ('Utilities', 'Utilities'),
-        ('Entertainment', 'Entertainment'),
-        ('Transportation', 'Transportation'),
-        ('Healthcare', 'Healthcare'),
-        ('Other', 'Other'),
+        ('Rent/Electricity/Rechage', 'Rent/Electricity/Rechage'),
+        ('Rice/Floor', 'Rice/Floor'),
+        ('Grocery', 'Grocery'),
+        ('Vegetables', 'Vegetables'),
+        ('Meat/Fish/Eggs', 'Meat/Fish/Eggs'),
+        ('Diary/Fruits/Bread', 'Diary/Fruits/Bread'),
+        ('Cleaning/Hygine', 'Cleaning/Hygine'),
+        ('Water/Gas', 'Water/Gas'),
+        ('Family', 'Family'),
+        ('Medical', 'Medical'),
+        ('Travel', 'Travel'),
+        ('Other', 'Other')
     ]
     category = forms.ChoiceField(choices=category_choices)
 
