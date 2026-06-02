@@ -19,6 +19,7 @@ Budget
       <th scope="col">Categories</th>
       <th scope="col">Amount</th>
       <th scope="col">Months</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,10 @@ Budget
       <td>{{ item.category }}</td>
       <td>{{ item.amount }}</td>
       <td>{{ item.month }}</td>
+      <td>
+        <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
+        <a href="{% url "delete_budget" pk=item.sl_no %}" class="btn btn-sm btn-outline-danger">Delete</a>
+      </td>
     </tr>
     {% endfor %}
 </table>
