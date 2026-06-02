@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add Transaction
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h2>Transaction Details</h2>
+    </div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary">Add Transaction</button>
+            <a href="{% url 'accounts_page' %}" class="btn btn-success">Cancel</a>
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

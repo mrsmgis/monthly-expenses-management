@@ -5,5 +5,32 @@ Accounts
 {% endblock %}
 
 {% block content %}
-<h1>This is Accounts page</h1>
+
+<div>
+    <h2>Transactions</h2>
+    <div class="mb-3 d-flex justify-content-end">
+        <a href="{% url "add_transaction" %}" class="btn btn-outline-primary">Add Transaction</a>
+    </div>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">SL No</th>
+      <th scope="col">Date</th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in budgets %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ item.category }}</td>
+      <td>{{ item.amount }}</td>
+      <td>{{ item.month }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
 {% endblock %}
