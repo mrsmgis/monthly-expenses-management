@@ -5,9 +5,43 @@ Accounts
 {% endblock %}
 
 {% block content %}
+<div class="row mt-4 mb-3">
+  <div class="col-sm-4 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Credit</h5>
+        <p class="card-text">0.00</p>
+        {% comment %} <a href="#" class="btn btn-primary">Today</a> {% endcomment %}
+        {% comment %} <a href="#" class="btn btn-primary">This Month</a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Current Balance</h5>
+        <p class="card-text">0.00</p>
+        {% comment %} <a href="#" class="btn btn-primary">Today</a> {% endcomment %}
+        {% comment %} <a href="#" class="btn btn-primary">This Month</a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Debit</h5>
+        <p class="card-text">0.00</p>
+        {% comment %} <a href="#" class="btn btn-primary">Today</a> {% endcomment %}
+        {% comment %} <a href="#" class="btn btn-primary">This Month</a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
 
 <div>
     <h2>Transactions</h2>
+    <a href="#" class="btn btn-primary">This Month</a>
+    <a href="#" class="btn btn-primary">Today</a>
     <div class="mb-3 d-flex justify-content-end">
         <a href="{% url "add_transaction" %}" class="btn btn-outline-primary">Add Transaction</a>
     </div>
@@ -20,6 +54,7 @@ Accounts
       <th scope="col">Description</th>
       <th scope="col">Amount</th>
       <th scope="col">Category</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +66,9 @@ Accounts
       <td>{{ acc.description }}</td>
       <td>{{ acc.amount }}</td>
       <td>{{ acc.category }}</td>
+      <td>
+        <a href="{% url "delete_transaction" pk=acc.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+      </td>
     </tr>
     {% endfor %}
 </table>

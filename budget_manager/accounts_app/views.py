@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account
 from .forms import AccountForm
 
@@ -22,3 +22,9 @@ def add_transaction(request):
 def view_accounts(request):
     accounts = Account.objects.all()
     return render(request, "accounts_app/accounts.html", {"accounts": accounts})
+
+#  Create delete transaction 
+def delete_transaction(request, pk):
+    transaction = get_object_or_404(Account, pk=pk)
+    transaction.delete()
+    return redirect('accounts_page')

@@ -4,11 +4,11 @@ from .models import Account
 
 class AccountForm(forms.ModelForm):
     type_choices = [
-        ('credit', 'credit'),
         ('debit', 'debit'),
+        ('credit', 'credit')
     ]
     type = forms.ChoiceField(choices=type_choices)
-    category_choices = [
+    debit_categories = [
         ('Rent/Electricity/Rechage', 'Rent/Electricity/Rechage'),
         ('Rice/Floor', 'Rice/Floor'),
         ('Grocery', 'Grocery'),
@@ -22,7 +22,14 @@ class AccountForm(forms.ModelForm):
         ('Travel', 'Travel'),
         ('Other', 'Other')
     ]
-    category = forms.ChoiceField(choices=category_choices)
+    credit_categories = [
+        ('Salary', 'Salary'),
+        ('Business', 'Business'),
+        ('Investment', 'Investment'),
+        ('Gift', 'Gift'),
+        ('Other', 'Other')
+    ]
+    category = forms.ChoiceField(choices=[('debit', debit_categories), ('credit', credit_categories)])
 
     class Meta:
         model = Account
