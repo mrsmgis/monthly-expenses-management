@@ -10,7 +10,7 @@ Accounts
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Total Credit</h5>
-        <p class="card-text">0.00</p>
+        <p class="card-text">{{ total_credit }}</p>
         {% comment %} <a href="#" class="btn btn-primary">Today</a> {% endcomment %}
         {% comment %} <a href="#" class="btn btn-primary">This Month</a> {% endcomment %}
       </div>
@@ -20,7 +20,7 @@ Accounts
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Current Balance</h5>
-        <p class="card-text">0.00</p>
+        <p class="card-text">{{ current_balance }}</p>
         {% comment %} <a href="#" class="btn btn-primary">Today</a> {% endcomment %}
         {% comment %} <a href="#" class="btn btn-primary">This Month</a> {% endcomment %}
       </div>
@@ -30,7 +30,7 @@ Accounts
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Total Debit</h5>
-        <p class="card-text">0.00</p>
+        <p class="card-text">{{ total_debit }}</p>
         {% comment %} <a href="#" class="btn btn-primary">Today</a> {% endcomment %}
         {% comment %} <a href="#" class="btn btn-primary">This Month</a> {% endcomment %}
       </div>
@@ -67,7 +67,7 @@ Accounts
       <td>{{ acc.amount }}</td>
       <td>{{ acc.category }}</td>
       <td>
-        <a href="{% url "delete_transaction" pk=acc.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+        <a href="{% url "delete_transaction" pk=acc.pk %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this transaction?')">Delete</a>
       </td>
     </tr>
     {% endfor %}

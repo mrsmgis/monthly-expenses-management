@@ -30,7 +30,7 @@ Budget
       <td>{{ item.amount }}</td>
       <td>{{ item.month }}</td>
       <td>
-        <a href="{% url "delete_budget" pk=item.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+        <a href="{% url "delete_budget" pk=item.pk %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this budget item?')">Delete</a>
       </td>
     </tr>
     {% endfor %}
